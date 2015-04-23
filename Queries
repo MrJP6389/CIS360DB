@@ -1,0 +1,33 @@
+Select   AcctName, AccountId, SubId, SubscribeType, COUNT(*)
+From     ACCOUNTS JOIN SUBSCRIPTION ON Cardnumber = Cardnumber
+Where    FavoriteArtist = 'Kanye West'
+Group By Playlist;
+
+Select SongId, Title, AlbumId, Title 
+From   SONG JOIN ALBUMS ON ALBUMID = ALBUM
+Where  NoOfSongs >= 10;
+
+Select SongId, Title, ArtistId, FirstName, LastName
+From   Song JOIN ARTISTS ON Artist = ArtistID;
+
+Select AlbumId, NoOfSongs, Title, Artist, FirstName, LastName
+From   ALBUM JOIN ARTIST ON Artist = ArtistId;
+
+Select   AlbumId, NoOfSongs, Title, MAX(NoOfSongs)
+From     Artists;
+
+
+Select FirstName, LastName
+From   Artists;
+
+Select SubId, FavoriteArtist, SubscribeType
+From   Subscription;
+
+Select AlbumId, NoOfSongs, Title
+From   Albums;
+
+Select Address, AccountId, FavoriteArtist, AcctName
+From   Accounts;
+
+Select SongId, Title, Artist, Album
+From   Song;
