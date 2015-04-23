@@ -4,6 +4,9 @@
  * and open the template in the editor.
  */
 
+import java.sql.*;
+import javax.swing.*;
+
 /**
  *
  * @author MrJP6389
@@ -26,51 +29,151 @@ public class DatabaseGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnConnectToDB = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        txtAreaDisplay = new javax.swing.JTextArea();
-        txtSearch = new javax.swing.JTextField();
+        Functions = new javax.swing.ButtonGroup();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        btnConnectToDB.setText("Connect to DB");
-        btnConnectToDB.setActionCommand("btnConnecttoDB");
-
-        txtAreaDisplay.setColumns(20);
-        txtAreaDisplay.setRows(5);
-        jScrollPane1.setViewportView(txtAreaDisplay);
-
-        txtSearch.setText("jTextField1");
+        jScrollPane1 = new javax.swing.JScrollPane();
+        DBResult = new javax.swing.JList();
+        FunctionsPanel = new javax.swing.JPanel();
+        CreatePlaylist = new javax.swing.JRadioButton();
+        DeletePlaylist = new javax.swing.JRadioButton();
+        AddSong = new javax.swing.JRadioButton();
+        RemoveSong = new javax.swing.JRadioButton();
+        CreateAccount = new javax.swing.JRadioButton();
+        ManageSubscription = new javax.swing.JRadioButton();
+        ShufflePlaylist = new javax.swing.JRadioButton();
+        SortPlaylist = new javax.swing.JRadioButton();
+        jRadioButton10 = new javax.swing.JRadioButton();
+        Search = new javax.swing.JRadioButton();
+        PlaylistPanel = new javax.swing.JPanel();
+        txtSearch = new javax.swing.JTextField();
+        SongPanel = new javax.swing.JPanel();
+        AccountPanel = new javax.swing.JPanel();
+        submit = new javax.swing.JButton();
 
         jButton1.setText("jButton1");
 
-        jButton2.setText("jButton2");
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton3.setText("jButton3");
+        jScrollPane1.setViewportView(DBResult);
 
-        jButton4.setText("jButton4");
+        Functions.add(CreatePlaylist);
+        CreatePlaylist.setText("Create Playlist");
 
-        jButton5.setText("jButton5");
+        Functions.add(DeletePlaylist);
+        DeletePlaylist.setText("Delete Playlist");
 
-        jButton6.setText("jButton6");
+        Functions.add(AddSong);
+        AddSong.setText("Add a song");
 
-        jButton7.setText("jButton7");
+        Functions.add(RemoveSong);
+        RemoveSong.setText("Remove a song");
 
-        jButton8.setText("jButton8");
+        Functions.add(CreateAccount);
+        CreateAccount.setText("Create account");
 
-        jButton9.setText("jButton9");
+        Functions.add(ManageSubscription);
+        ManageSubscription.setText("Manage subscription");
 
-        jButton10.setText("jButton10");
+        Functions.add(ShufflePlaylist);
+        ShufflePlaylist.setText("Shuffle Playlist");
+
+        Functions.add(SortPlaylist);
+        SortPlaylist.setText("Sort Playlist");
+
+        Functions.add(jRadioButton10);
+        jRadioButton10.setText("Follow Artist");
+
+        Functions.add(Search);
+        Search.setText("Search ");
+
+        javax.swing.GroupLayout FunctionsPanelLayout = new javax.swing.GroupLayout(FunctionsPanel);
+        FunctionsPanel.setLayout(FunctionsPanelLayout);
+        FunctionsPanelLayout.setHorizontalGroup(
+            FunctionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(FunctionsPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(FunctionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(FunctionsPanelLayout.createSequentialGroup()
+                        .addComponent(CreatePlaylist, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(AddSong, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(CreateAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(FunctionsPanelLayout.createSequentialGroup()
+                        .addComponent(DeletePlaylist, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(RemoveSong, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ManageSubscription, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(FunctionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(ShufflePlaylist, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)
+                    .addComponent(SortPlaylist, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(FunctionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(FunctionsPanelLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jRadioButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Search, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        FunctionsPanelLayout.setVerticalGroup(
+            FunctionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(FunctionsPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(FunctionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(CreatePlaylist)
+                    .addComponent(AddSong)
+                    .addComponent(CreateAccount)
+                    .addComponent(ShufflePlaylist)
+                    .addComponent(jRadioButton10))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(FunctionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(DeletePlaylist)
+                    .addComponent(RemoveSong, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ManageSubscription)
+                    .addComponent(SortPlaylist)
+                    .addComponent(Search))
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout PlaylistPanelLayout = new javax.swing.GroupLayout(PlaylistPanel);
+        PlaylistPanel.setLayout(PlaylistPanelLayout);
+        PlaylistPanelLayout.setHorizontalGroup(
+            PlaylistPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        PlaylistPanelLayout.setVerticalGroup(
+            PlaylistPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 82, Short.MAX_VALUE)
+        );
+
+        txtSearch.setText("Search");
+        txtSearch.setEnabled(false);
+
+        javax.swing.GroupLayout SongPanelLayout = new javax.swing.GroupLayout(SongPanel);
+        SongPanel.setLayout(SongPanelLayout);
+        SongPanelLayout.setHorizontalGroup(
+            SongPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        SongPanelLayout.setVerticalGroup(
+            SongPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 98, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout AccountPanelLayout = new javax.swing.GroupLayout(AccountPanel);
+        AccountPanel.setLayout(AccountPanelLayout);
+        AccountPanelLayout.setHorizontalGroup(
+            AccountPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        AccountPanelLayout.setVerticalGroup(
+            AccountPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 91, Short.MAX_VALUE)
+        );
+
+        submit.setText("Submit");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -79,60 +182,39 @@ public class DatabaseGUI extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnConnectToDB)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jButton2)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton6)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(14, 14, 14)
-                                .addComponent(jButton1)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton5)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 449, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(AccountPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(SongPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtSearch, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(PlaylistPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(FunctionsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 603, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(submit, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnConnectToDB)
-                .addGap(30, 30, 30)
+                .addComponent(FunctionsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(13, 13, 13)
                 .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton3)
-                    .addComponent(jButton5)
-                    .addComponent(jButton7)
-                    .addComponent(jButton10))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton4)
-                    .addComponent(jButton6)
-                    .addComponent(jButton8)
-                    .addComponent(jButton9))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(PlaylistPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(SongPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(AccountPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(submit)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -174,19 +256,25 @@ public class DatabaseGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnConnectToDB;
+    private javax.swing.JPanel AccountPanel;
+    private javax.swing.JRadioButton AddSong;
+    private javax.swing.JRadioButton CreateAccount;
+    private javax.swing.JRadioButton CreatePlaylist;
+    private javax.swing.JList DBResult;
+    private javax.swing.JRadioButton DeletePlaylist;
+    private javax.swing.ButtonGroup Functions;
+    private javax.swing.JPanel FunctionsPanel;
+    private javax.swing.JRadioButton ManageSubscription;
+    private javax.swing.JPanel PlaylistPanel;
+    private javax.swing.JRadioButton RemoveSong;
+    private javax.swing.JRadioButton Search;
+    private javax.swing.JRadioButton ShufflePlaylist;
+    private javax.swing.JPanel SongPanel;
+    private javax.swing.JRadioButton SortPlaylist;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
+    private javax.swing.JRadioButton jRadioButton10;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea txtAreaDisplay;
+    private javax.swing.JButton submit;
     private javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
 }
