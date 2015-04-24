@@ -54,3 +54,17 @@ CREATE TABLE ALBUM(
 	FORIEGN KEY (ARTIST) REFERENCES ARTIST(ARTISTID)
 	ON DELETE CASCADE	ON UPDATE CASCADE;
 	
+CREATE Table Playlist(
+	PSubId		VARCHAR(5)	NOT NULL,
+	PSongId		VARCHAR(5)	NOT NULL,
+	PName		VARCHAR(10)	NOT NULL,
+	PNoOfSongs	NUMBER		NOT NULL,
+	Primary Key (PName),
+	Foreign Key (PSubId) REFERENCES SUBSCRIPTION (SubId),
+	Foreign Key (PSongId) REFERENCES Song (SongId));
+
+CREATE Table PlaySongs(
+	PlayName	VARCHAR(10)	NOT NULL,
+	PlaySongs	VARCHAR(10)	NOT NULL,
+	Primary Key (PlaySongs),
+	Foreign Key (PlayName) REFERENCES Playlist (PName));
