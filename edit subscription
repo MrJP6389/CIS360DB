@@ -1,0 +1,12 @@
+-- creates subscription
+INSERT INTO SUBSCRiption
+VALUES	    ('16483','Samus','3','3','102847593','112 tinker ln');
+
+-- delete subscription
+DELETE FROM SUBSCRIPTION
+WHERE       SUBID = '16438';
+
+-- edit subscription
+UPDATE	SUBSCRIPTION
+SET	EDITSUBSCRIPTION = '4', SUBSCRIBETYPE = '4'
+WHERE	SUBID = '12345';
