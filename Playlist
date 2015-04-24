@@ -1,0 +1,2 @@
+SELECT SongId, Title, SLength, FirstName, LastName
+From   SONG JOIN ARTISTS ON Artist = ArtistID;
