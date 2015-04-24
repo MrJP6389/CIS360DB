@@ -5,7 +5,9 @@
  */
 
 import java.sql.*;
+import java.util.Vector;
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -31,8 +33,7 @@ public class DatabaseGUI extends javax.swing.JFrame {
 
         Functions = new javax.swing.ButtonGroup();
         jButton1 = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        DBResult = new javax.swing.JList();
+        jPanel1 = new javax.swing.JPanel();
         FunctionsPanel = new javax.swing.JPanel();
         CreatePlaylist = new javax.swing.JRadioButton();
         DeletePlaylist = new javax.swing.JRadioButton();
@@ -42,37 +43,134 @@ public class DatabaseGUI extends javax.swing.JFrame {
         ManageSubscription = new javax.swing.JRadioButton();
         ShufflePlaylist = new javax.swing.JRadioButton();
         SortPlaylist = new javax.swing.JRadioButton();
-        jRadioButton10 = new javax.swing.JRadioButton();
+        FollowArtist = new javax.swing.JRadioButton();
         Search = new javax.swing.JRadioButton();
         PlaylistPanel = new javax.swing.JPanel();
+        jLabel13 = new javax.swing.JLabel();
+        txtPSubID = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        txtSID = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        txtPName = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
+        txtNumOfSongs = new javax.swing.JTextField();
+        jLabel17 = new javax.swing.JLabel();
+        txtPSong = new javax.swing.JTextField();
         txtSearch = new javax.swing.JTextField();
         SongPanel = new javax.swing.JPanel();
+        txtTitle = new javax.swing.JTextField();
+        lblTitle = new javax.swing.JLabel();
+        lblLength = new javax.swing.JLabel();
+        txtLength = new javax.swing.JTextField();
+        lblArtist = new javax.swing.JLabel();
+        txtArtist = new javax.swing.JTextField();
+        lblAlbum = new javax.swing.JLabel();
+        txtAlbum = new javax.swing.JTextField();
+        lblReleaseDate = new javax.swing.JLabel();
+        txtReleaseDate = new javax.swing.JTextField();
+        lblSingle = new javax.swing.JLabel();
+        txtSongID = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        comboSingle = new javax.swing.JComboBox();
         AccountPanel = new javax.swing.JPanel();
+        txtName = new javax.swing.JTextField();
+        txtBirthday = new javax.swing.JTextField();
+        txtCardNumber = new javax.swing.JTextField();
+        txtAddress = new javax.swing.JTextField();
+        lblName = new javax.swing.JLabel();
+        lblEmail = new javax.swing.JLabel();
+        txtEmail = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        txtAccountID = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
         submit = new javax.swing.JButton();
+        comboSearch = new javax.swing.JComboBox();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        DBResults = new javax.swing.JTable();
+        FollowA = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        txtAID = new javax.swing.JTextField();
+        txtArtistName = new javax.swing.JTextField();
+        ManageSub = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        txtSubID = new javax.swing.JTextField();
+        comboSub = new javax.swing.JComboBox();
+        jLabel9 = new javax.swing.JLabel();
+        txtSubType = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        txtSubT = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        txtCN = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        txtBilling = new javax.swing.JTextField();
+        jLabel18 = new javax.swing.JLabel();
+        txtFavA = new javax.swing.JTextField();
 
         jButton1.setText("jButton1");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 109, Short.MAX_VALUE)
+        );
 
-        jScrollPane1.setViewportView(DBResult);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         Functions.add(CreatePlaylist);
         CreatePlaylist.setText("Create Playlist");
+        CreatePlaylist.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CreatePlaylistActionPerformed(evt);
+            }
+        });
 
         Functions.add(DeletePlaylist);
         DeletePlaylist.setText("Delete Playlist");
+        DeletePlaylist.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeletePlaylistActionPerformed(evt);
+            }
+        });
 
         Functions.add(AddSong);
         AddSong.setText("Add a song");
+        AddSong.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddSongActionPerformed(evt);
+            }
+        });
 
         Functions.add(RemoveSong);
         RemoveSong.setText("Remove a song");
+        RemoveSong.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RemoveSongActionPerformed(evt);
+            }
+        });
 
         Functions.add(CreateAccount);
         CreateAccount.setText("Create account");
+        CreateAccount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CreateAccountActionPerformed(evt);
+            }
+        });
 
         Functions.add(ManageSubscription);
         ManageSubscription.setText("Manage subscription");
+        ManageSubscription.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ManageSubscriptionActionPerformed(evt);
+            }
+        });
 
         Functions.add(ShufflePlaylist);
         ShufflePlaylist.setText("Shuffle Playlist");
@@ -80,11 +178,21 @@ public class DatabaseGUI extends javax.swing.JFrame {
         Functions.add(SortPlaylist);
         SortPlaylist.setText("Sort Playlist");
 
-        Functions.add(jRadioButton10);
-        jRadioButton10.setText("Follow Artist");
+        Functions.add(FollowArtist);
+        FollowArtist.setText("Follow Artist");
+        FollowArtist.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FollowArtistActionPerformed(evt);
+            }
+        });
 
         Functions.add(Search);
         Search.setText("Search ");
+        Search.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SearchActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout FunctionsPanelLayout = new javax.swing.GroupLayout(FunctionsPanel);
         FunctionsPanel.setLayout(FunctionsPanelLayout);
@@ -109,13 +217,11 @@ public class DatabaseGUI extends javax.swing.JFrame {
                 .addGroup(FunctionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(ShufflePlaylist, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)
                     .addComponent(SortPlaylist, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(FunctionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(FunctionsPanelLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jRadioButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(Search, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                    .addComponent(Search, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(FollowArtist))
+                .addGap(44, 44, 44))
         );
         FunctionsPanelLayout.setVerticalGroup(
             FunctionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -126,7 +232,7 @@ public class DatabaseGUI extends javax.swing.JFrame {
                     .addComponent(AddSong)
                     .addComponent(CreateAccount)
                     .addComponent(ShufflePlaylist)
-                    .addComponent(jRadioButton10))
+                    .addComponent(FollowArtist))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(FunctionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(DeletePlaylist)
@@ -137,65 +243,388 @@ public class DatabaseGUI extends javax.swing.JFrame {
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
+        jLabel13.setText("Playlist Sub ID:");
+
+        jLabel14.setText("Song ID:");
+
+        jLabel15.setText("Playlist Name:");
+
+        jLabel16.setText("Number Of Songs");
+
+        jLabel17.setText("Playlist Song:");
+
         javax.swing.GroupLayout PlaylistPanelLayout = new javax.swing.GroupLayout(PlaylistPanel);
         PlaylistPanel.setLayout(PlaylistPanelLayout);
         PlaylistPanelLayout.setHorizontalGroup(
             PlaylistPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(PlaylistPanelLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addGroup(PlaylistPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(PlaylistPanelLayout.createSequentialGroup()
+                        .addComponent(jLabel16)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtNumOfSongs))
+                    .addGroup(PlaylistPanelLayout.createSequentialGroup()
+                        .addComponent(jLabel13)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtPSubID, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addGroup(PlaylistPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PlaylistPanelLayout.createSequentialGroup()
+                        .addComponent(jLabel14)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtSID, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel15)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtPName, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PlaylistPanelLayout.createSequentialGroup()
+                        .addComponent(jLabel17)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtPSong, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PlaylistPanelLayout.setVerticalGroup(
             PlaylistPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 82, Short.MAX_VALUE)
+            .addGroup(PlaylistPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(PlaylistPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(txtPSubID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel14)
+                    .addComponent(txtSID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel15)
+                    .addComponent(txtPName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(PlaylistPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel16)
+                    .addComponent(txtNumOfSongs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel17)
+                    .addComponent(txtPSong, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
-        txtSearch.setText("Search");
+        PlaylistPanel.setVisible(false);
+
         txtSearch.setEnabled(false);
+
+        lblTitle.setText("Title:");
+
+        lblLength.setText("Length:");
+
+        lblArtist.setText("Artist:");
+
+        lblAlbum.setText("Album:");
+
+        lblReleaseDate.setText("Release Date:");
+
+        lblSingle.setText("Single:");
+
+        jLabel4.setText("ID:");
+
+        comboSingle.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "True", "False" }));
+        comboSingle.setEnabled(false);
 
         javax.swing.GroupLayout SongPanelLayout = new javax.swing.GroupLayout(SongPanel);
         SongPanel.setLayout(SongPanelLayout);
         SongPanelLayout.setHorizontalGroup(
             SongPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(SongPanelLayout.createSequentialGroup()
+                .addGroup(SongPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(SongPanelLayout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtSongID, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblTitle)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblLength)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtLength, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblArtist)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtArtist, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblAlbum)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(SongPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblSingle)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(comboSingle, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblReleaseDate)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtReleaseDate, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         SongPanelLayout.setVerticalGroup(
             SongPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 98, Short.MAX_VALUE)
+            .addGroup(SongPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(SongPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblTitle)
+                    .addComponent(lblLength)
+                    .addComponent(txtLength, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblArtist)
+                    .addComponent(txtArtist, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblAlbum)
+                    .addComponent(txtAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtSongID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addGap(18, 18, 18)
+                .addGroup(SongPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblSingle)
+                    .addComponent(lblReleaseDate)
+                    .addComponent(txtReleaseDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboSingle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
+
+        SongPanel.setVisible(false);
+
+        lblName.setText("Name:");
+
+        lblEmail.setText("Email:");
+
+        jLabel1.setText("Card Number:");
+
+        jLabel2.setText("Address:");
+
+        jLabel3.setText("Birthday:");
+
+        jLabel5.setText("ID:");
 
         javax.swing.GroupLayout AccountPanelLayout = new javax.swing.GroupLayout(AccountPanel);
         AccountPanel.setLayout(AccountPanelLayout);
         AccountPanelLayout.setHorizontalGroup(
             AccountPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(AccountPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(AccountPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(AccountPanelLayout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtAddress))
+                    .addGroup(AccountPanelLayout.createSequentialGroup()
+                        .addComponent(lblName)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(AccountPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(AccountPanelLayout.createSequentialGroup()
+                        .addComponent(lblEmail)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(AccountPanelLayout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtBirthday)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(AccountPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(AccountPanelLayout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtCardNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(AccountPanelLayout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtAccountID, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         AccountPanelLayout.setVerticalGroup(
             AccountPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 91, Short.MAX_VALUE)
+            .addGroup(AccountPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(AccountPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCardNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblName)
+                    .addComponent(lblEmail)
+                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addGap(18, 18, 18)
+                .addGroup(AccountPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtBirthday, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3)
+                    .addComponent(txtAccountID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
+        AccountPanel.setVisible(false);
+
         submit.setText("Submit");
+        submit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submitActionPerformed(evt);
+            }
+        });
+
+        comboSearch.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Song", "Artist" }));
+        comboSearch.setEnabled(false);
+
+        DBResults.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane2.setViewportView(DBResults);
+
+        jLabel6.setText("AccountID:");
+
+        jLabel7.setText("Artist Name:");
+
+        FollowA.setVisible(false);
+
+        javax.swing.GroupLayout FollowALayout = new javax.swing.GroupLayout(FollowA);
+        FollowA.setLayout(FollowALayout);
+        FollowALayout.setHorizontalGroup(
+            FollowALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(FollowALayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtAID, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(69, 69, 69)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtArtistName, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        FollowALayout.setVerticalGroup(
+            FollowALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(FollowALayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(FollowALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel7)
+                    .addComponent(txtAID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtArtistName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(20, Short.MAX_VALUE))
+        );
+
+        jLabel8.setText("SubID:");
+
+        comboSub.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Add Subscription", "Delete Subscripton", "Edit Subscripton" }));
+        comboSub.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboSubActionPerformed(evt);
+            }
+        });
+
+        jLabel9.setText("Subscription Edit:");
+
+        jLabel10.setText("Sub Type:");
+
+        jLabel11.setText("Card Number:");
+
+        jLabel12.setText("Billing Address:");
+
+        jLabel18.setText("Favoite Artist:");
+
+        ManageSub.setVisible(false);
+
+        javax.swing.GroupLayout ManageSubLayout = new javax.swing.GroupLayout(ManageSub);
+        ManageSub.setLayout(ManageSubLayout);
+        ManageSubLayout.setHorizontalGroup(
+            ManageSubLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ManageSubLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(ManageSubLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(comboSub, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(ManageSubLayout.createSequentialGroup()
+                        .addComponent(jLabel10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtSubT, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addGroup(ManageSubLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ManageSubLayout.createSequentialGroup()
+                        .addComponent(jLabel11)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtCN, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel12)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtBilling, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(ManageSubLayout.createSequentialGroup()
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtSubID, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtFavA)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtSubType, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(69, 69, 69))))
+        );
+        ManageSubLayout.setVerticalGroup(
+            ManageSubLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ManageSubLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(ManageSubLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(txtSubID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboSub, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9)
+                    .addComponent(txtSubType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel18)
+                    .addComponent(txtFavA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
+                .addGroup(ManageSubLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(txtCN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12)
+                    .addComponent(txtBilling, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(ManageSubLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel10)
+                        .addComponent(txtSubT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(38, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(AccountPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(SongPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtSearch, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(PlaylistPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(FunctionsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 603, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addContainerGap())
+                    .addComponent(jScrollPane2)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(submit, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(submit, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(FollowA, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(FunctionsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(AccountPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(SongPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(PlaylistPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(comboSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtSearch))
+                            .addComponent(ManageSub, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -203,23 +632,427 @@ public class DatabaseGUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(FunctionsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(13, 13, 13)
-                .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(PlaylistPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(SongPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(AccountPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(FollowA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ManageSub, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(submit)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void AddSongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddSongActionPerformed
+        // TODO add your handling code here:
+        PlaylistPanel.setVisible(false);
+        AccountPanel.setVisible(false);
+        FollowA.setVisible(false);
+        SongPanel.setVisible(true);
+        ManageSub.setVisible(false);
+        txtAlbum.setEnabled(true);
+        txtArtist.setEnabled(true);
+        txtLength.setEnabled(true);
+        txtReleaseDate.setEnabled(true);
+        comboSingle.setEnabled(true);
+        txtSongID.setEnabled(true);
+        txtTitle.setEnabled(true);
+        txtSearch.setEnabled(false);
+        comboSearch.setEnabled(false);
+        
+    }//GEN-LAST:event_AddSongActionPerformed
+
+    private void RemoveSongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveSongActionPerformed
+        // TODO add your handling code here:
+        PlaylistPanel.setVisible(false);
+        AccountPanel.setVisible(false);
+        FollowA.setVisible(false);
+        SongPanel.setVisible(true);
+        ManageSub.setVisible(false);
+        txtAlbum.setEnabled(false);
+        txtArtist.setEnabled(false);
+        txtLength.setEnabled(false);
+        txtReleaseDate.setEnabled(false);
+        comboSingle.setEnabled(false);
+        txtSongID.setEnabled(true);
+        txtTitle.setEnabled(false);
+        txtSearch.setEnabled(false); 
+        comboSearch.setEnabled(false);
+    }//GEN-LAST:event_RemoveSongActionPerformed
+
+    private void CreatePlaylistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreatePlaylistActionPerformed
+        // TODO add your handling code here:
+        PlaylistPanel.setVisible(true);
+        AccountPanel.setVisible(false);
+        FollowA.setVisible(false);
+        ManageSub.setVisible(false);
+        SongPanel.setVisible(false);
+        txtSearch.setEnabled(false);
+        comboSearch.setEnabled(false);
+    }//GEN-LAST:event_CreatePlaylistActionPerformed
+
+    private void DeletePlaylistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeletePlaylistActionPerformed
+        // TODO add your handling code here:
+        PlaylistPanel.setVisible(true);
+        AccountPanel.setVisible(false);
+        FollowA.setVisible(false);
+        ManageSub.setVisible(false);
+        SongPanel.setVisible(false);
+        txtSearch.setEnabled(false);
+        comboSearch.setEnabled(false);
+        txtPSubID.setEnabled(false);
+        txtSID.setEnabled(false);
+        txtNumOfSongs.setEnabled(false);
+        txtPSong.setEnabled(false);
+    }//GEN-LAST:event_DeletePlaylistActionPerformed
+
+    private void CreateAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreateAccountActionPerformed
+        // TODO add your handling code here:
+        PlaylistPanel.setVisible(false);
+        AccountPanel.setVisible(true);
+        SongPanel.setVisible(false);
+        FollowA.setVisible(false);
+        txtSearch.setEnabled(false);
+        comboSearch.setEnabled(false);
+        
+    }//GEN-LAST:event_CreateAccountActionPerformed
+   
+    private void submitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitActionPerformed
+        // TODO add your handling code here:
+        try 
+        {
+            Class.forName ("oracle.jdbc.driver.OracleDriver");
+        } 
+        catch (ClassNotFoundException e) 
+        {
+            System.out.println ("Could not load the driver"); 
+        }
+        
+        try
+        {
+            Connection conn = DriverManager.getConnection
+            ("jdbc:oracle:thin:@localhost:1521:xe","myUser","password");
+            String query;
+            String query2;
+            ResultSet r;
+            PreparedStatement p;
+                                
+            if(CreatePlaylist.isSelected())
+            {
+                query = "INSERT INTO Playlist VALUES (?, ?, ?, ?)";
+                
+                p = conn.prepareStatement (query);
+                String PSubID = txtPSubID.getText();
+                String SongID = txtSID.getText();
+                String PName = txtPName.getText();
+                int PNumSong = Integer.parseInt(txtNumOfSongs.getText());
+                String PlaySongs = txtPSong.getText();
+                p.clearParameters();
+                p.setString(1, PSubID);
+                p.setString(2, SongID);
+                p.setString(3, PName);
+                p.setInt(4, PNumSong);
+                p.executeUpdate();
+                conn.commit();
+                
+                query = "INSERT INTO PlaySongs VALUES (?, ?);";
+                p.clearParameters();
+                p.setString(1, PName);
+                p.setString(2, PlaySongs);
+                p.executeUpdate();
+                conn.commit();
+                
+                query = "SELECT * FROM Playlist";
+                p = conn.prepareStatement(query);                
+            }
+            else if(DeletePlaylist.isSelected())
+            {
+                query = "DELETE FROM Playlist WHERE PName = ?";
+                p = conn.prepareStatement (query);
+                String PName = txtPName.getText();
+                p.setString(1, PName);
+                p.executeUpdate();
+                conn.commit();
+                
+                query = "SELECT * FROM Playlist";
+                p = conn.prepareStatement(query);
+            }
+            else if(AddSong.isSelected())
+            {
+                query = "INSERT INTO SONG VALUES (?,?,?,?,?,?,?)";
+                p = conn.prepareStatement (query);
+                String ID = txtSongID.getText();
+                String Title = txtTitle.getText();
+                String Artist = txtArtist.getText();
+                String Album = txtAlbum.getText();
+                String RD = txtReleaseDate.getText();
+                int s;
+                String length = txtLength.getText();
+                if(comboSingle.getSelectedItem().toString() == "True")
+                    s = 1;
+                else
+                    s = 0;
+                p.clearParameters();
+                p.setString(1, ID);
+                p.setString(2, Title);
+                p.setString(3, Artist);
+                p.setString(4, Album);
+                p.setString(5, RD);
+                p.setInt(6, s);
+                p.setDouble(7, Double.parseDouble(length));
+                p.executeUpdate();
+                conn.commit();
+                
+                query = "SELECT * FROM SONG";
+                p = conn.prepareStatement(query);
+            }
+            else if(RemoveSong.isSelected())
+            {
+                query = "DELETE FROM SONG WHERE SONGID = ?";
+                p = conn.prepareStatement (query);
+                p.clearParameters();
+                String ID = txtSongID.getText();
+                p.setString(1, ID);
+                p.executeUpdate();
+                conn.commit();
+                
+                query = "SELECT * FROM SONG";
+                p = conn.prepareStatement(query);
+            }
+            else if(CreateAccount.isSelected())
+            {
+                query = "INSERT INTO Account (ADDRESS, CCardNumber, EMAIL, ACCOUNTID, NAME, BIRTHDATE) VALUES (?,?,?,?,?,?)";
+                p = conn.prepareStatement (query);
+                p.clearParameters();
+                String Address = txtAddress.getText();
+                String CN = txtCardNumber.getText();
+                String Email = txtEmail.getText();
+                String AID = txtAccountID.getText();
+                String Name = txtName.getText();
+                String BD = txtBirthday.getText();
+                p.setString(1, Address);
+                p.setInt(2, Integer.parseInt(CN));
+                p.setString(3, Email);
+                p.setString(4, AID);
+                p.setString(5, Name);
+                p.setString(6, BD);             
+                
+                p.executeUpdate();
+                conn.commit();
+                query = "SELECT * FROM Account";
+                p = conn.prepareStatement(query);
+            }
+            else if(ManageSubscription.isSelected())
+            {
+                if(comboSub.getSelectedItem().toString() == "Edit Subscripton")
+                {
+                    query = "UPDATE SUBSCRIPTION SET EDITSUBSCRIPTION = ?, SUBSCRIBETYPE = ? WHERE SUBID = ?";
+                    p = conn.prepareStatement (query);
+                    p.clearParameters();
+                    String SubID = txtSubID.getText();
+                    int EditSub = Integer.parseInt(txtSubType.getText());
+                    int SubType = Integer.parseInt(txtSubT.getText());                    
+                    p.setInt(1, EditSub);
+                    p.setInt(2, SubType);
+                    p.setString(3, SubID);
+                    p.executeUpdate();
+                    conn.commit();                    
+                }
+                else if(comboSub.getSelectedItem().toString() == "Delete Subscripton")
+                {
+                    query = "DELETE FROM SUBSCRIPTION WHERE SUBID = ?";
+                    p = conn.prepareStatement (query);
+                    p.clearParameters();
+                    String SubID = txtSubID.getText();
+                    p.setString(1, SubID);
+                    p.executeUpdate();
+                    conn.commit();
+                }
+                else
+                {
+                    query = "INSERT INTO SUBSCRIPTION VALUES (?,?,?,?,?,?)";
+                    p = conn.prepareStatement (query);
+                    p.clearParameters();
+                    String SubID = txtSubID.getText();
+                    String FavA = txtFavA.getText();
+                    int EditSub = Integer.parseInt(txtSubType.getText());
+                    int SubType = Integer.parseInt(txtSubT.getText());
+                    String CN = txtCN.getText();
+                    String BillingA = txtBilling.getText();
+                    p.setString(1, SubID);
+                    p.setString(2, FavA);
+                    p.setInt(3, EditSub);
+                    p.setInt(4, SubType);
+                    p.setString(5, CN);
+                    p.setString(6, BillingA); 
+                    p.executeUpdate();
+                    conn.commit();
+                }
+                
+                query = "SELECT * FROM SUBSCRIPTION";
+                p = conn.prepareStatement (query);
+            }
+            else if(Search.isSelected())
+            {
+                if(comboSearch.getSelectedItem().toString() == "Song")
+                {
+                    query = "select from song where title = ?";
+                    p = conn.prepareStatement (query);
+                    String title = txtTitle.getText();
+                    p.clearParameters();
+                    p.setString(1, title);
+                }
+                else
+                {
+                    query = "select * from ARTISTS where LASTNAME = ?";
+                    p = conn.prepareStatement (query);
+                    String LastName = txtSearch.getText();
+                    p.clearParameters();
+                    p.setString(1, LastName);
+                }
+                
+            }
+            else if(ShufflePlaylist.isSelected())
+            {
+                query = "SELECT * FROM PlaySongs ORDER BY NEWID()";
+                p = conn.prepareStatement (query);
+            }
+            else if(SortPlaylist.isSelected())
+            {
+                query = "SELECT * FROM PlaySongs ORDER BY PlaySongs ASC|DESC";
+                p = conn.prepareStatement (query);
+                
+            }
+            else
+            {
+                query = "UPDATE Account SET FAVORITEARTIST = ? WHERE ACCOUNTID = ?";
+                p = conn.prepareStatement (query);
+                p.clearParameters();
+                String AID = txtAID.getText();
+                String AN = txtArtistName.getText();
+                p.setString(1, AN);
+                p.setString(2, AID);
+                 p.executeUpdate();
+                conn.commit();
+                
+                query = "Select * FROM Account WHERE ACCOUNTID = ?";
+                p = conn.prepareStatement (query);
+                p.clearParameters();
+                p.setString(1, AID);                               
+            }
+            r = p.executeQuery();
+            DBResults.setModel(buildTableModel(r));
+            
+            conn.close();            
+        }
+        catch (SQLException e)
+        {
+        System.out.print(e);
+        }
+        
+    }//GEN-LAST:event_submitActionPerformed
+
+    private void SearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchActionPerformed
+        txtSearch.setEnabled(true);
+        comboSearch.setEnabled(true);
+        PlaylistPanel.setVisible(false);
+        ManageSub.setVisible(false);
+        AccountPanel.setVisible(false);
+        SongPanel.setVisible(false);
+        FollowA.setVisible(false);
+    }//GEN-LAST:event_SearchActionPerformed
+
+    private void FollowArtistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FollowArtistActionPerformed
+        // TODO add your handling code here:
+        PlaylistPanel.setVisible(false);
+        AccountPanel.setVisible(false);
+        ManageSub.setVisible(false);
+        SongPanel.setVisible(false);
+        FollowA.setVisible(true);
+        txtSearch.setEnabled(false);
+        comboSearch.setEnabled(false);
+    }//GEN-LAST:event_FollowArtistActionPerformed
+
+    private void comboSubActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboSubActionPerformed
+        // TODO add your handling code here:
+        if(comboSub.getSelectedItem().toString() == "Edit Subscripton")
+        {
+            txtSubID.setEnabled(true);
+            txtSubType.setEnabled(true);
+            txtSubT.setEnabled(false);
+            txtCN.setEnabled(false);
+            txtBilling.setEnabled(false);
+            txtFavA.setEnabled(false);
+        }
+        else if(comboSub.getSelectedItem().toString() == "Delete Subscripton")
+        {
+            txtSubID.setEnabled(true);
+            txtSubType.setEnabled(false);
+            txtSubT.setEnabled(false);
+            txtCN.setEnabled(false);
+            txtBilling.setEnabled(false);
+            txtFavA.setEnabled(false);
+            
+        }
+        else
+        {
+            txtSubID.setEnabled(true);
+            txtSubType.setEnabled(true);
+            txtSubT.setEnabled(true);
+            txtCN.setEnabled(true);
+            txtBilling.setEnabled(true);
+            txtFavA.setEnabled(true);
+        }
+    }//GEN-LAST:event_comboSubActionPerformed
+
+    private void ManageSubscriptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ManageSubscriptionActionPerformed
+        // TODO add your handling code here:
+        ManageSub.setVisible(true);
+        PlaylistPanel.setVisible(false);
+        AccountPanel.setVisible(false);
+        FollowA.setVisible(false);
+        SongPanel.setVisible(false);
+    }//GEN-LAST:event_ManageSubscriptionActionPerformed
+                                      
+
+    public static DefaultTableModel buildTableModel(ResultSet rs)
+        throws SQLException {
+
+    ResultSetMetaData metaData = rs.getMetaData();
+
+    // names of columns
+    Vector<String> columnNames = new Vector<String>();
+    int columnCount = metaData.getColumnCount();
+    for (int column = 1; column <= columnCount; column++) {
+        columnNames.add(metaData.getColumnName(column));
+    }
+
+    // data of the table
+    Vector<Vector<Object>> data = new Vector<Vector<Object>>();
+    while (rs.next()) {
+        Vector<Object> vector = new Vector<Object>();
+        for (int columnIndex = 1; columnIndex <= columnCount; columnIndex++) {
+            vector.add(rs.getObject(columnIndex));
+        }
+        data.add(vector);
+    }
+
+    return new DefaultTableModel(data, columnNames);
+
+}
+    
     /**
      * @param args the command line arguments
      */
@@ -260,10 +1093,13 @@ public class DatabaseGUI extends javax.swing.JFrame {
     private javax.swing.JRadioButton AddSong;
     private javax.swing.JRadioButton CreateAccount;
     private javax.swing.JRadioButton CreatePlaylist;
-    private javax.swing.JList DBResult;
+    private javax.swing.JTable DBResults;
     private javax.swing.JRadioButton DeletePlaylist;
+    private javax.swing.JPanel FollowA;
+    private javax.swing.JRadioButton FollowArtist;
     private javax.swing.ButtonGroup Functions;
     private javax.swing.JPanel FunctionsPanel;
+    private javax.swing.JPanel ManageSub;
     private javax.swing.JRadioButton ManageSubscription;
     private javax.swing.JPanel PlaylistPanel;
     private javax.swing.JRadioButton RemoveSong;
@@ -271,10 +1107,64 @@ public class DatabaseGUI extends javax.swing.JFrame {
     private javax.swing.JRadioButton ShufflePlaylist;
     private javax.swing.JPanel SongPanel;
     private javax.swing.JRadioButton SortPlaylist;
+    private javax.swing.JComboBox comboSearch;
+    private javax.swing.JComboBox comboSingle;
+    private javax.swing.JComboBox comboSub;
     private javax.swing.JButton jButton1;
-    private javax.swing.JRadioButton jRadioButton10;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lblAlbum;
+    private javax.swing.JLabel lblArtist;
+    private javax.swing.JLabel lblEmail;
+    private javax.swing.JLabel lblLength;
+    private javax.swing.JLabel lblName;
+    private javax.swing.JLabel lblReleaseDate;
+    private javax.swing.JLabel lblSingle;
+    private javax.swing.JLabel lblTitle;
     private javax.swing.JButton submit;
+    private javax.swing.JTextField txtAID;
+    private javax.swing.JTextField txtAccountID;
+    private javax.swing.JTextField txtAddress;
+    private javax.swing.JTextField txtAlbum;
+    private javax.swing.JTextField txtArtist;
+    private javax.swing.JTextField txtArtistName;
+    private javax.swing.JTextField txtBilling;
+    private javax.swing.JTextField txtBirthday;
+    private javax.swing.JTextField txtCN;
+    private javax.swing.JTextField txtCardNumber;
+    private javax.swing.JTextField txtEmail;
+    private javax.swing.JTextField txtFavA;
+    private javax.swing.JTextField txtLength;
+    private javax.swing.JTextField txtName;
+    private javax.swing.JTextField txtNumOfSongs;
+    private javax.swing.JTextField txtPName;
+    private javax.swing.JTextField txtPSong;
+    private javax.swing.JTextField txtPSubID;
+    private javax.swing.JTextField txtReleaseDate;
+    private javax.swing.JTextField txtSID;
     private javax.swing.JTextField txtSearch;
+    private javax.swing.JTextField txtSongID;
+    private javax.swing.JTextField txtSubID;
+    private javax.swing.JTextField txtSubT;
+    private javax.swing.JTextField txtSubType;
+    private javax.swing.JTextField txtTitle;
     // End of variables declaration//GEN-END:variables
 }
