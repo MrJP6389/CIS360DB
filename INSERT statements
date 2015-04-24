@@ -1,0 +1,55 @@
+INSERT INTO Accounts VALUES('132 Thompson Drive',12345678910111213149,'1','Steven Tyler','lilwayne@gmail.com', 1234, 'Wayne','21-MAR-2007');
+INSERT INTO Accounts VALUES('320 Stanley Avenue',54616468461486413843,'2','Freddie Mercury','bob12@gmail.com',2567,'Bob','07-JUN-1987');
+INSERT INTO Accounts VALUES('125 Apples Road',12354894557861456478,'0','Taylor Swift','tswizzle@gmail.com',7543,'Rebecca','11-JUL-1989');
+INSERT INTO Accounts VALUES('487 Banana Lane',89546785214567896310,'10','Marshall Mathers','mandm@gmail.com',4321,'Taylor','10-OCT-1976');
+INSERT INTO Accounts VALUES('2596 Orange Avenue',56875646464615348974,'5','Bon Jovi','keving@gmail.com',5678,'Kevin','28-JAN-1968');
+INSERT INTO Accounts VALUES('246 First Avenue',19161916194618943946,'4','John OCallahan','jpinkman@gmail.com',7863,'Jesse','12-JAN-1968');
+INSERT INTO Accounts VALUES('829 Pink Street',84313168165171354648,'5','Taylor Swift','winner@gmail.com',3594,'Tanner','02-FEB-1994');
+INSERT INTO Accounts VALUES('546 Imperial Lane',56555665658150312767,'7','John OCallaghan','maniac@gmail.com',5555,'Logan','14-OCT-1994');
+INSERT INTO Accounts VALUES('1384 Art Road',42544932122017764984,'3','Andy Grammer','agrammer@gmail.com',5768,'Colby','01-JUL-1985');
+INSERT INTO Accounts VALUES('1501 Billing Drive',56875646464615344532,'15','Kanye West','kanyesawesome@gmail.com',6931,'Kim','25-DEC-1982');
+
+--SubID	FavoriteArtist	EditSubscription	SubType	CardNumber	BillAddress
+INSERT INTO Subscription VALUES(12345,'Steven Tyler',1,89347,12345678910111213149,'132 Thompson Drive');
+INSERT INTO Subscription VALUES(69475,'Freddie Mercury',1,23456,54616468461486413843,'320 Stanley Avenue');
+INSERT INTO Subscription VALUES(98765,'Taylor Swift',0,34567,12354894557861456478,'125 Apples Road');
+INSERT INTO Subscription VALUES(54732,'Marshall Mathers',1,89347,89546785214567896310,'487 Banana Lane');
+INSERT INTO Subscription VALUES(86753,'Bon Jovi',1,23456,56875646464615348974,'2596 Orange Avenue');
+INSERT INTO Subscription VALUES(30982,'John OCallaghan',1,34567,19161916194618943946,'246 First Avenue');
+INSERT INTO Subscription VALUES(54680,'Taylor Swift',1,89347,84313168165171354648,'829 Pink Street');
+INSERT INTO Subscription VALUES(10203,'John OCallaghan',1,23456,56555665658150312767,'546 Imperial Lane');
+INSERT INTO Subscription VALUES(22334,'Andy Grammer',1,34567,42544932122017764984,'1384 Art Road');
+INSERT INTO Subscription VALUES(31203,'Kanye West',1,89347,56875646464615344532,'1501 Billing Drive');
+--
+INSERT INTO Artists VALUES(76578,'Andy','Grammer');
+INSERT INTO Artists VALUES(89273,'Bon','Jovi');
+INSERT INTO Artists VALUES(46942,'Marshall','Mathers');
+INSERT INTO Artists VALUES(59231,'John','Elefonte');
+INSERT INTO Artists VALUES(77891,'Kanye','West');
+INSERT INTO Artists VALUES(83645,'Taylor','Swift');
+INSERT INTO Artists VALUES(14563,'Steven','Tyler');
+INSERT INTO Artists VALUES(37894,'Brett','Michaels');
+INSERT INTO Artists VALUES(43219,'John','OCallaghan');
+INSERT INTO Artists VALUES(11496,'Freddie','Mercury');
+--
+INSERT INTO Albums VALUES(89435,12,44625,'Magazines or Novels',76578,'05-AUG-2014');
+INSERT INTO Albums VALUES(49762,10,89436,'Slippery When Wet',89273,'25-DEC-2012');
+INSERT INTO Albums VALUES(89447,22,47783,'8 Mile',46942,'21-JAN-1947');
+INSERT INTO Albums VALUES(46892,9,89942,'LeftOverture',59231,'21-JUL-2010');
+INSERT INTO Albums VALUES(67891,15,98462,'Graduation',77891,'18-OCT-2006');
+INSERT INTO Albums VALUES(43215,19,76543,'1989',83645,'27-MAY-2014');
+INSERT INTO Albums VALUES(59642,9,12345,'Toys in the Attic',14563,'21-FEB-1980');
+INSERT INTO Albums VALUES(71487,10,44369,'Open Up And Say...Ahh!',37894,'27-MAY-1991');
+INSERT INTO Albums VALUES(29168,12,85149,'Forever Halloween',43219,'04-JUN-2013');
+INSERT INTO Albums VALUES(83579,11,41589,'News of the World',11496,'28-OCT-1977');
+--
+INSERT INTO Song VALUES(49625,'Honey, Im Good',76578,89435,'15-AUG-2015',1,'3.19');
+INSERT INTO Song VALUES(89436,'Livin On A Prayer',89273,49762,'03-MAR-1987',0,'4.09');
+INSERT INTO Song VALUES(47783,'Loose Yourself',46942,89447,'28-OCT-2002',1,'5.26');
+INSERT INTO Song VALUES(89942,'Carry On My Wayward Son',59231,46892,'20-DEC-1976',1,'5.26');
+INSERT INTO Song VALUES(98462,'Cant Tell Me Nothing',77891,67891,'15-JAN-2007',1,'4.31');
+INSERT INTO Song VALUES(76543,'Blank Space',83645,43215,'10-NOV-2014',1,'3.51');
+INSERT INTO Song VALUES(12345,'Walk This Way',14563,59642,'28-AUG-1975',1,'3.32');
+INSERT INTO Song VALUES(44369,'Every Rose Has Its Thorn',37894,71487,'12-OCT-1988',1,'4.20');
+INSERT INTO Song VALUES(85149,'Run',43219,29168,'11-AUG-2014',0,'3.42');
+INSERT INTO Song VALUES(41589,'We Will Rock You',11496,83579,'07-OCT-1977',1,'2.01');
