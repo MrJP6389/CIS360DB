@@ -1,0 +1,16 @@
+-- adds playlist
+INSERT INTO Playlist
+VALUES ('98765','28465','Playlist 5',2);
+
+INSERT INTO PlaySongs
+VALUES ('Playlist 5','We Are');
+
+INSERT INTO PlaySongs
+VALUES ('Playlist 5','Them Boys');
+
+-- delete playlist
+DELETE FROM Playlist
+WHERE       PName = 'Playlist 5';
+
+DELETE FROM PlaySongs
+WHERE       PlayName = 'Playlist 5';
