@@ -1,33 +1,53 @@
+--Joins the account table and the subscription table and dispays the account name, account id, subscription id, subription type, and shows 
+
+-- the number of tuples in the result.
 Select   AcctName, AccountId, SubId, SubscribeType, COUNT(*)
 From     ACCOUNTS JOIN SUBSCRIPTION ON Cardnumber = Cardnumber
 Where    FavoriteArtist = 'Kanye West'
 Group By Playlist;
 
+-- Joins the Song table and the Album table and displays the song id, title of the song, album id, and the album title when the number of 
+
+-- songs in the album is greater than 9.
 Select SongId, Title, AlbumId, Title 
 From   SONG JOIN ALBUMS ON ALBUMID = ALBUM
 Where  NoOfSongs >= 10;
 
+-- Joins the Artist table and the Song table and displays the song id, the title of the song, the artist id, the artist first name and the 
+
+-- artist last name.
 Select SongId, Title, ArtistId, FirstName, LastName
 From   Song JOIN ARTISTS ON Artist = ArtistID;
 
-Select AlbumId, NoOfSongs, Title, Artist, FirstName, LastName
-From   ALBUM JOIN ARTIST ON Artist = ArtistId;
+-- Joins the Album table and the Artist table and displays the album id, number of songs in the album, the title of the album, the artist 
 
+--id, and the artist first and last name.
+Select AlbumId, NoOfSongs, Title, Artist, FirstName, LastName
+From   ALBUMS JOIN ARTISTS ON Artist = ArtistId;
+
+-- Displays the album id, number of songs in the album, the title of the album, and the maximum number of songs in the album in the Artist 
+
+-- table.
 Select   AlbumId, NoOfSongs, Title, MAX(NoOfSongs)
 From     Artists;
 
-
+-- Displays the artist's first and last name of the Artist table.
 Select FirstName, LastName
 From   Artists;
 
+-- Displays the subscription id, the favorite artist of the subscriber, and the subscription type from the subscription table.
 Select SubId, FavoriteArtist, SubscribeType
 From   Subscription;
 
+-- Displays the album's id, the number of songs in the album, and the title of the album from the Album table.
 Select AlbumId, NoOfSongs, Title
 From   Albums;
 
+-- Displays the address, account id, favorite artist, and the account name from the Accounts table.
 Select Address, AccountId, FavoriteArtist, AcctName
 From   Accounts;
 
+-- Displays the song's id, title of the song, the artist id, and the album id from the SOng table.
 Select SongId, Title, Artist, Album
 From   Song;
+
