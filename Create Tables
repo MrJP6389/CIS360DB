@@ -58,7 +58,7 @@ CREATE Table Playlist(
 	PSubId		VARCHAR(5)	NOT NULL,
 	PSongId		VARCHAR(5)	NOT NULL,
 	PName		VARCHAR(10)	NOT NULL,
-	PNoOfSongs	NUMBER		NOT NULL,
+	PNoOfSongs	INT		NOT NULL,
 	Primary Key (PName),
 	Foreign Key (PSubId) REFERENCES SUBSCRIPTION (SubId),
 	Foreign Key (PSongId) REFERENCES Song (SongId));
