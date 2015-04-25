@@ -908,7 +908,7 @@ public class DatabaseGUI extends javax.swing.JFrame {
             {
                 if(comboSearch.getSelectedItem().toString() == "Song")
                 {
-                    query = "select from song where title = ?";
+                    query = "select * from SONG where title LIKE ?";
                     p = conn.prepareStatement (query);
                     String title = txtTitle.getText();
                     p.clearParameters();
@@ -916,7 +916,7 @@ public class DatabaseGUI extends javax.swing.JFrame {
                 }
                 else
                 {
-                    query = "select * from ARTISTS where LASTNAME = ?";
+                    query = "select * from ARTISTS where LASTNAME LIKE ?";
                     p = conn.prepareStatement (query);
                     String LastName = txtSearch.getText();
                     p.clearParameters();
